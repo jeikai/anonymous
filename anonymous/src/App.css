@@ -1,0 +1,56 @@
+body {
+  background-image: linear-gradient(to top right, 
+  #AAE3E2, #D9ACF5);
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+  font-family: monospace;
+  align-items: center;
+  color: #555;
+  overflow: hidden;
+}
+.my-container{
+    width: calc(100% - 78px);
+    position: absolute;
+    left: 78px;
+    height: 100%;
+    transition: all 0.5s ease;
+    z-index: 0;
+    overflow: auto;
+  }
+  
+  
+  .mainBodyActive{
+    left: 240px;
+    width: calc(100% - 240px);
+  }
+  .my-container{
+    width: calc(100% - 78px);
+    position: absolute;
+    left: 78px;
+    height: 100%;
+    transition: all 0.5s ease;
+    z-index: 0;
+    overflow: auto;
+  }
+  
+  
+  .mainBodyActive{
+    left: 240px;
+    width: calc(100% - 240px);
+  }
+  /* :has check xem phần tử có chứa phần tử con không */
+.changeTheme:has(input:checked) {
+  background-color: #4cb774;
+}
+.changeTheme:has(input:checked)::before {
+  left: calc(100% - 35px);
+}
+body:has(input[name="changeTheme"]:checked) {
+  background-image: linear-gradient(
+      to top, #1a1f39, black
+  );
+  color: white;
+}
