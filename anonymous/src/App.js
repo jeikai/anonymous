@@ -27,18 +27,18 @@ function App() {
   }
   return (
     <>
-      {/* <Routes>
+      <Routes>
         <Route exact path='/' element={<Login />} />
         <Route path='/logup' element={<Logup />} />
-      </Routes> */}
+      </Routes>
 
-        <Header myActive={active} updateActive={upDateMyContainerActive} />
+        {/* <Header myActive={active} updateActive={upDateMyContainerActive} />
         <div className={active ? 'my-container mainBodyActive' : 'my-container'} id="light">
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/setting' element={<Setting />} />
           </Routes>
-        </div>
+        </div> */}
     </>
 
   );
