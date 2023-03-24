@@ -3,12 +3,12 @@ import './Home.css'
 import { propTypes } from 'react-bootstrap/esm/Image'
 import TinderCard from 'react-tinder-card'
 
-Tinder_Card.propTypes = {
-    db: propTypes.Array
-}
-Tinder_Card.defaultProps = {
-    db: []
-}
+// Tinder_Card.propTypes = {
+//     db: propTypes.Array
+// }
+// Tinder_Card.defaultProps = {
+//     db: []
+// }
 function Tinder_Card({ db }) {
     const [currentIndex, setCurrentIndex] = useState(db.length - 1)
     const [lastDirection, setLastDirection] = useState()
@@ -54,7 +54,6 @@ function Tinder_Card({ db }) {
     return (
         <>
             <div className='cardContainer'>
-
                 {db.map((character, index) => (
                     <TinderCard
                         ref={childRefs[index]}
@@ -63,25 +62,33 @@ function Tinder_Card({ db }) {
                         onSwipe={(dir) => swiped(dir, character.name, index)}
                         onCardLeftScreen={() => outOfFrame(character.name, index)}
                     >
-                        <div
-                            style={{ backgroundImage: 'url(' + character.url + ')' }}
-                            className='card'
-                        >
-                            <h3>{character.name}</h3>
-                            
+                        <div className="card">
+                        <div className='image'>
+                            <img src={character.url} alt="" />
                         </div>
+                        <div className="info">
+                            <span>{character.name}, 26</span>
+                            <span>
+                                <i class="fa-solid fa-crown"></i>  Lorem ipsum dolor sit amet.
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-crown"></i>  Lorem ipsum dolor sit amet.
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-crown"></i>  Lorem ipsum dolor sit amet.
+                            </span>
+                        </div>
+                        <hr />
                         <div className='description'>
-                            <div className='title'>Trần Quang Phúc, 20</div>
-                            <div className='content'>Phúc K66CACLC1</div>
+                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis nam fugiat amet blanditiis tempora voluptate tempore quas minima dolorem exercitationem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quod quas quis quaerat ea. Accusamus earum aut porro commodi maiores voluptates eos eum placeat nihil. Soluta asperiores dicta nam excepturi architecto distinctio, tenetur praesentium sit, tempora, odit similique deleniti amet.</span>
+                        </div>
+                        <div className='buttons'>
+                            <button id='remove' style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}><i class="fa fa-remove"></i></button>
+                            <button id='heart' style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}><i class="fa fa-heart"></i></button>
+                        </div>
                         </div>
                     </TinderCard>
                 ))}
-
-
-            </div>
-            <div className='buttons'>
-                <button id='remove' style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}><i class="fa fa-remove"></i></button>
-                <button id='heart' style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}><i class="fa fa-heart"></i></button>
             </div>
         </>
     )

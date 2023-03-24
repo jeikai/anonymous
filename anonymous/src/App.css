@@ -18,7 +18,7 @@ body {
     height: 100%;
     transition: all 0.5s ease;
     z-index: 0;
-    overflow: auto;
+    overflow: hidden;
   }
   
   
@@ -33,7 +33,7 @@ body {
     height: 100%;
     transition: all 0.5s ease;
     z-index: 0;
-    overflow: auto;
+    overflow: hidden;
   }
   
   
