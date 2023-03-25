@@ -27,13 +27,13 @@ class Header extends React.Component {
                         </li>
                         <li>
                             <NavLink to={'/profile'} end>
-                                <i className="fa-thin fa-person"></i>
+                            <i class="fa-solid fa-person"></i>
                                 <span className="links_name">Profile</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to={'/message'} end>
-                                <i className="fa-regular fa-messages"></i>
+                            <i class="fa-solid fa-message"></i>
                                 <span className="links_name">Tin nhắn</span>
                             </NavLink>
                         </li>

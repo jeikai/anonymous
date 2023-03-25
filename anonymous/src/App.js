@@ -6,7 +6,7 @@ import Logup from './login/Logup';
 import Header from './main/header/Header'
 import Home from './main/body/Home/Home'
 import Setting from './main/body/Settings/Setting';
-
+import ChatBox from './main/body/Chat/Chatbox';
 
 function App() {
   const [backendData, setBackendData] = useState([{}])
@@ -27,18 +27,19 @@ function App() {
   }
   return (
     <>
-      <Routes>
+      {/* <Routes>
         <Route exact path='/' element={<Login />} />
         <Route path='/logup' element={<Logup />} />
-      </Routes>
+      </Routes> */}
 
-        {/* <Header myActive={active} updateActive={upDateMyContainerActive} />
+        <Header myActive={active} updateActive={upDateMyContainerActive} />
         <div className={active ? 'my-container mainBodyActive' : 'my-container'} id="light">
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/setting' element={<Setting />} />
+            <Route path='/message' element={<ChatBox />} />
           </Routes>
-        </div> */}
+        </div>
     </>
 
   );

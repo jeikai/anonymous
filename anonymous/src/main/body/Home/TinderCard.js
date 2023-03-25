@@ -63,29 +63,24 @@ function Tinder_Card({ db }) {
                         onCardLeftScreen={() => outOfFrame(character.name, index)}
                     >
                         <div className="card">
-                        <div className='image'>
-                            <img src={character.url} alt="" />
-                        </div>
-                        <div className="info">
-                            <span>{character.name}, 26</span>
-                            <span>
-                                <i class="fa-solid fa-crown"></i>  Lorem ipsum dolor sit amet.
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-crown"></i>  Lorem ipsum dolor sit amet.
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-crown"></i>  Lorem ipsum dolor sit amet.
-                            </span>
-                        </div>
-                        <hr />
-                        <div className='description'>
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis nam fugiat amet blanditiis tempora voluptate tempore quas minima dolorem exercitationem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quod quas quis quaerat ea. Accusamus earum aut porro commodi maiores voluptates eos eum placeat nihil. Soluta asperiores dicta nam excepturi architecto distinctio, tenetur praesentium sit, tempora, odit similique deleniti amet.</span>
-                        </div>
-                        <div className='buttons'>
-                            <button id='remove' style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}><i class="fa fa-remove"></i></button>
-                            <button id='heart' style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}><i class="fa fa-heart"></i></button>
-                        </div>
+                            <div className='image'>
+                                <img src={character.url} alt="" />
+                            </div>
+
+                            <div className="info">
+                                <span>{character.name} {character.age}</span>
+                                <span>
+                                    <i class="fa-solid fa-crown"></i> {character.gender == true ? 'Nam' : 'Nữ'}
+                                </span>
+                            </div>
+                            <hr />
+                            <div className='description'>
+                                <span>{character.description}</span>
+                            </div>
+                            <div className='buttons'>
+                                <button id='remove' style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}><i class="fa fa-remove"></i></button>
+                                <button id='heart' style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}><i class="fa fa-heart"></i></button>
+                            </div>
                         </div>
                     </TinderCard>
                 ))}

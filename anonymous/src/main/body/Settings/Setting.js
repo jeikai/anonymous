@@ -8,8 +8,6 @@ function Setting() {
         <ul className='setting'>
             <li>Hello</li>
         </ul>
-            
-
         </>
     )
 }
