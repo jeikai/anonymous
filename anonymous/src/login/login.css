@@ -98,6 +98,12 @@
     text-decoration-line: none;
     font-size: medium;
 }
+.fa-arrow-left {
+    color: #cc64a2;
+    text-decoration-line: none;
+    font-size: 30px;
+    margin-top: 10px;
+}
 .group .power-container {
     background-color: #2f3e47;
     width: 100%;

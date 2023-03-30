@@ -9,7 +9,7 @@ body {
   font-family: monospace;
   align-items: center;
   color: #555;
-  overflow: hidden;
+
 }
 .my-container{
     width: calc(100% - 78px);

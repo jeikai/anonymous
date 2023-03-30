@@ -15,16 +15,16 @@
 }
 
 .card {
-  width: 100%;
-  max-width: 560px;
+  width: 360px;
+  max-width: 460px;
   height: fit-content;
   border-radius: 10px;
   padding: 5px;
   overflow: hidden;
 }
 
-.card .image   {
-  width: 300px;
+.card .image {
+  width: 100%;
   height: 200px;
 }
 
@@ -44,7 +44,7 @@
 
 .card .info span:nth-child(n+2) {
   font-size: 14px;
-  color: black;
+  color: gray;
 }
 
 .card .description {
@@ -54,7 +54,7 @@
 
 .card .buttons {
   margin: 10px 0;
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 50px;
@@ -110,5 +110,17 @@ body:has(input[name="changeTheme"]:checked) .description{
 
   100% {
     transform: scale(1, 1)
+  }
+}
+@media only screen and (min-width: 700px) and (max-width: 1100px) {
+  .card {
+    margin-top: 300px;
+    width: 360px;
+  }
+}
+@media only screen and (min-width: 280px) and (max-width: 700px) {
+  .card {
+    margin-top: 500px;
+    width: 300px;
   }
 }

@@ -3,12 +3,6 @@ import './Home.css'
 import { propTypes } from 'react-bootstrap/esm/Image'
 import TinderCard from 'react-tinder-card'
 
-// Tinder_Card.propTypes = {
-//     db: propTypes.Array
-// }
-// Tinder_Card.defaultProps = {
-//     db: []
-// }
 function Tinder_Card({ db }) {
     const [currentIndex, setCurrentIndex] = useState(db.length - 1)
     const [lastDirection, setLastDirection] = useState()
@@ -63,6 +57,7 @@ function Tinder_Card({ db }) {
                         onCardLeftScreen={() => outOfFrame(character.name, index)}
                     >
                         <div className="card">
+
                             <div className='image'>
                                 <img src={character.url} alt="" />
                             </div>
