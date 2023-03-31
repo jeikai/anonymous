@@ -24,7 +24,7 @@ function Home(props) {
     const [db, SetDb] = useState(initdb);
     return (
         <>
-            <Tinder_Card db={db} />
+            <Tinder_Card db={db} />      
         </>
     )
 }

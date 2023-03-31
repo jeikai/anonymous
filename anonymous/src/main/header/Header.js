@@ -3,8 +3,11 @@ import { NavLink } from "react-router-dom";
 import './Header.css';
 
 class Header extends React.Component {
+    logout = () =>{
+        localStorage.clear();
+        window.location.replace("http://localhost:3000/login");
+    }
     render() {
-
         return (
             <>
                 <div className={this.props.myActive ? 'sidebar active1' : 'sidebar'}>
@@ -41,6 +44,12 @@ class Header extends React.Component {
                             <NavLink to={'/setting'} end>
                                 <i className='fa-solid fa-gear setting'></i>
                                 <span className="links_name setting">Cài đặt</span>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink onClick={()=>this.logout()} to='/Login'>
+                                <i className='bx bx-log-out  bx-sm' ></i>
+                                <span className="links_name">Logo out</span>
                             </NavLink>
                         </li>
                     </ul>
