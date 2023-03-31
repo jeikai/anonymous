@@ -10,17 +10,6 @@ import ChatBox from './main/body/Chat/Chatbox';
 
 
 function App() {
-  // const [backendData, setBackendData] = useState([{}])
-
-  // useEffect( () => {
-  //   fetch("/api").then(
-  //     response => response.json()
-  //   ).then(
-  //     data => {
-  //       setBackendData(data)
-  //     }
-  //   )
-  // }, [])
 
   const [active, setActive] = useState(false);
   let upDateMyContainerActive = (my_active) => {

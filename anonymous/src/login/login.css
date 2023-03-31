@@ -75,24 +75,66 @@
     border: 10px solid #333F6A;
     position: relative;
 }
+
+
 .loginBtn button {
+    text-decoration: none;
+    position: relative;
+    border: none;
+    font-size: 14px;
+    font-family: inherit;
+    color: #fff;
     width: 100%;
     height: 100%;
+    line-height: 2em;
+    text-align: center;
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 300%;
     border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .loginBtn  button:hover {
+    animation: ani 8s linear infinite;
     border: none;
-    background-image: linear-gradient(
-        to bottom right,
-        #DA95F5, #F465F3
-    );
-    color: white;
-    font-weight: bold;
-}
-.loginBtn button:hover {
-    background-image: linear-gradient(
-        to bottom right,
-        white, green
-    );
-}
+  }
+  
+  @keyframes ani {
+    0% {
+      background-position: 0%;
+    }
+  
+    100% {
+      background-position: 400%;
+    }
+  }
+  
+  .loginBtn  button:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    border-radius: 35px;
+    transition: 1s;
+  }
+  
+  .loginBtn  button:hover::before {
+    filter: blur(20px);
+  }
+  
+  .loginBtn  button:active {
+    background: linear-gradient(32deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+  }
+
+  #gender {
+    border: none;
+    background-color: transparent;
+  }
 .group .log_up {
     color: #cc64a2;
     text-decoration-line: none;
@@ -104,6 +146,7 @@
     font-size: 30px;
     margin-top: 10px;
 }
+
 .group .power-container {
     background-color: #2f3e47;
     width: 100%;
@@ -118,3 +161,4 @@
     border-radius: 5px;
     transition: 0.5s;
 }
+
