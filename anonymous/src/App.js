@@ -2,11 +2,12 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css'
 import Login from './login/Login';
 import Logup from './login/Logup';
+import Fill_Post from './login/Fill_Post';
 import Home from './main/body/Home/Home';
 import Setting from './main/body/Settings/Setting';
-import ChatBox from './main/body/Chat/Chatbox';
 import { useState } from 'react';
 import Header from './main/header/Header';
+import ChatBox from './main/body/Chat/Chatbox';
 function App() {
   const [login, setLogin] = useState({
     user: localStorage.getItem('user')
@@ -20,8 +21,9 @@ function App() {
     <>
       {JSON.parse(login.user) == null ?
         <Routes>
-          <Route exact path='/login' element={<Login />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/logup' element={<Logup />} />
+          <Route path='/fill' element={<Fill_Post/>}></Route>
         </Routes>
         :
         <>

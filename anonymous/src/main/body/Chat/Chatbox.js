@@ -1,36 +1,57 @@
 import './ChatBox.css'
-import Chat from './Chat';
-import { useState } from 'react';
-import io from "socket.io-client"
-
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ChatContainer from './ChatContainer';
+import Welcome from './Welcome';
+import Contacts from './Contacts';
+import axios from "axios";
+import { allUsersRoute } from '../../../utils/APIRoutes';
 function ChatBox() {
-    return (
-        <>
+  const navigate = useNavigate();
+  const [contacts, setContacts] = useState([]);
+  const [currentChat, setCurrentChat] = useState(undefined);
+  const [currentUser, setCurrentUser] = useState(undefined);
 
-                {/* {!showChat ? (
-                    <div className="joinChatContainer">
-                        <h3>Join A Chat</h3>
-                        <input
-                            type="text"
-                            placeholder="John..."
-                            onChange={(event) => {
-                                setUsername(event.target.value);
-                            }}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Room ID..."
-                            onChange={(event) => {
-                                setRoom(event.target.value);
-                            }}
-                        />
-                        <button onClick={joinRoom}>Join A Room</button>
-                    </div>
+
+  //Lấy ra thông tin của người dùng hiện tại nếu ko có trong local Storage thì quay về login
+  useEffect(() => {
+    if (!localStorage.getItem('user')) {
+      navigate("/login");
+    } else {
+      const user = JSON.parse(localStorage.getItem('user'))
+      setCurrentUser(
+        user
+      );
+    }
+  }, []);
+  const handleChatChange = (chat) => {
+    setCurrentChat(chat);
+  };
+  //Lấy ra Contact theo Id của người dùng
+  useEffect(() => {
+    async function Data() {
+      if (currentUser) {
+        const data = await axios.get(`${allUsersRoute}/${currentUser._id}`)
+        setContacts(data.data);
+      }
+    }
+    Data()
+  }, [currentUser]);
+  console.log(contacts)
+
+  return (
+    <>
+      <div className="chat_container">
+        <Contacts contacts={contacts} changeChat={handleChatChange}></Contacts>
+        <Welcome />
+        {/*   <Contacts contacts={contacts} changeChat={handleChatChange} />
+                {currentChat === undefined ? (
+                    <Welcome />
                 ) : (
-                    <Chat socket={socket} username={username} room={room} />
-                )} */}
-
-        </>
-    )
+                    <ChatContainer currentChat={currentChat} socket={socket} />
+                )}*/}
+      </div>
+    </>
+  )
 }
 export default ChatBox;

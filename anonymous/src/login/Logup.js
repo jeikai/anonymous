@@ -21,62 +21,66 @@ function Logup() {
         userName: "",
         repass: "",
         age: 0,
-        gender: 1
+        gender: 1,
+        avatarImage: "default.jpg",
     })
     const handleChange = (event, a) => {
         setValues({ ...values, [event.target.name]: event.target.value });
-        if ( a) {
+        if (a) {
             setPassword(event.target.value)
         }
-        console.log(values)
     }
     const handleValidation = () => {
-        const { password, repass, userName, age, gender } = values;
+        const { password, repass, userName, age, gender, avatarImage } = values;
         if (password != repass) {
-            console.log( password + " " + repass)
             toast.error(
-                "Password and confirm password should be same.",
+                "Mật khẩu không khớp",
                 toastOptions
             );
             return false
         } else if (userName.length < 3) {
             toast.error(
-                "Username should be greater than 3 characters.",
+                "Tên người dùng quá ngắn",
                 toastOptions
             );
             return false;
         } else if (password.length < 6) {
             toast.error(
-                "Password should be equal or greater than 6 characters.",
+                "Độ dài mật khẩu phải lớn hơn hoặc bằng 6 kí tự",
                 toastOptions
             );
             return false;
-        } else if (age <= 18) {
+        } else if (age < 18) {
             toast.error(
-                "Your age must be above 18",
+                "Tuổi của bạn phải lớn hơn 18",
                 toastOptions
             );
             return false;
-        } 
+        } else if (avatarImage.substr(-3).toLowerCase() != "jpg" && avatarImage.substr(-3).toLowerCase() != "png") {
+            toast.error(
+                "Sai định dạng ảnh",
+                toastOptions
+            );
+            return false;
+        }
 
         return true;
     }
     const handleSubmit = async (event) => {
         event.preventDefault()
         if (handleValidation()) {
-            const { password, repass, userName } = values;
+            const { password, repass, userName, age, gender, avatarImage } = values;
             //call API
             const { data } = await axios.post(registerRoute, {
                 userName,
-                password
+                password,
+                age,
+                gender,
+                avatarImage
             })
             if (data.status === false) {
                 toast.error(data.msg, toastOptions);
             } else if (data.status === true) {
-                localStorage.setItem(
-                    process.env.REACT_APP_LOCALHOST_KEY,
-                    JSON.stringify(data.user)
-                );
                 navigate("/login")
             }
         }
@@ -92,7 +96,7 @@ function Logup() {
                     <div className='form'>
                         <div className='group'>
                             <h1>Anonymous</h1>
-                            <Link className='log_up' to='/'><i class="fa-solid fa-arrow-left"></i></Link>
+                            <Link className='log_up' to='/login'><i class="fa-solid fa-arrow-left"></i></Link>
                         </div>
                         <div className='group'>
                             <i className='fa-regular fa-user'></i>
@@ -151,6 +155,13 @@ function Logup() {
                             </select>
                             <label >
                                 Gender
+                            </label>
+                        </div>
+                        <div className='group'>
+                            <i class="fa-solid fa-image"></i>
+                            <input type='file' name='avatarImage' onChange={(e) => handleChange(e, false)}></input>
+                            <label>
+                                Your avatar
                             </label>
                         </div>
 

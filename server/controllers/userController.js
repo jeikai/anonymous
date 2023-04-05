@@ -6,8 +6,10 @@ const bcrypt = require("bcrypt");
 //next cho phép ta điều khiển sang middleware tiếp theo
 module.exports.register = async (req, res, next) => {
     try {
-        const { userName, password } = req.body;
-
+        let { userName, password, age, gender, avatarImage } = req.body;
+        let check = avatarImage.substring(2, 3)
+        let array =  avatarImage.split(check)
+        avatarImage = array[array.length - 1]
         //Câu lệnh truy vấn tím kiếm xem trong DB có tồn tại username này hay chưa
         const usernameCheck = await User.findOne({ userName });
         if (usernameCheck) {
@@ -18,6 +20,9 @@ module.exports.register = async (req, res, next) => {
             const user = await User.create({
                 userName,
                 password: hashedPassword,
+                age,
+                gender,
+                avatarImage,
             });
             delete user.password;
             return res.json({ status: true, user });
@@ -38,6 +43,20 @@ module.exports.login = async (req, res, next) => {
         return res.json({ msg: "Incorrect Username or Password", status: false });
       delete user.password;
       return res.json({ status: true, user });
+    } catch (ex) {
+      next(ex);
+    }
+  };
+
+  module.exports.getAllUsers = async (req, res, next) => {
+    try {
+      // $ne: tìm kiếm các giá trị không bằng giá trị ID đã cho
+      const users = await User.find({ _id: { $ne: req.params.id } }).select([
+        "avatarImage",
+        "userName",
+        "_id",
+      ]);
+      return res.json(users);
     } catch (ex) {
       next(ex);
     }

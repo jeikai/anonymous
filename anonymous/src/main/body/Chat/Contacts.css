@@ -1,0 +1,79 @@
+.contact_container {
+    display: grid;
+  grid-template-rows: 10% 75% 15%;
+  overflow: hidden;
+  background-color: transparent;
+}
+.contact_container img {
+    height: 2rem;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .contact_container  h4 {
+    color: black;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  .contact_container .brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact_container .contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    gap: 0.8rem;
+  }
+  .contact_container .contacts::-webkit-scrollbar {
+    width: 0.2rem;
+  }
+  .contact_container .contacts-thumb {
+    background-color: #ffffff39;
+    width: 0.1rem;
+    border-radius: 1rem;
+  }
+  .contacts .contact {
+    background-color: #ffffff34;
+      min-height: 5rem;
+      cursor: pointer;
+      width: 90%;
+      border-radius: 0.2rem;
+      padding: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      transition: 0.5s ease-in-out;
+  }
+  .contacts .avatar img {
+    height: 3rem;
+  }
+  .contacts .username {
+    color: black;
+  }
+  .contacts .selected {
+    background-color: #9a86f3;
+  }
+  .current-user {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  .current-user .avatar img {
+    clip-path: circle(50%);
+  }
+  .current-user .username h2 {
+    color: black;
+    font-size: 2rem;
+  }
+  @media screen and (min-width: 720px) and (max-width: 1080px) {
+    .contact_container .contacts {
+        gap: 0.5rem;
+    }
+    .username h2 {
+        font-size: 1rem;
+    }
+  }
