@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Kaushan+Script&display=swap');
 .contact_container {
     display: grid;
   grid-template-rows: 10% 75% 15%;
-  overflow: hidden;
   background-color: transparent;
 }
 .contact_container img {
@@ -13,6 +13,8 @@
     color: black;
     display: inline-block;
     text-transform: uppercase;
+    font-family: 'Kaushan Script', cursive;
+
   }
   .contact_container .brand {
     display: flex;
@@ -48,6 +50,7 @@
   }
   .contacts .avatar img {
     height: 3rem;
+    clip-path: circle(50%);
   }
   .contacts .username {
     color: black;
@@ -77,3 +80,12 @@
         font-size: 1rem;
     }
   }
+  body:has(input[name="changeTheme"]:checked) .contact .username {
+    color: white;
+  }
+  body:has(input[name="changeTheme"]:checked) .current-user .username h2 {
+    color: white;
+  }
+  body:has(input[name="changeTheme"]:checked) .contact_container .brand h4 {
+    color: white;
+  } 

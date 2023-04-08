@@ -8,3 +8,6 @@ flex-direction: column;
 img {
   height: 20rem;
 }
+body:has(input[name="changeTheme"]:checked) .welcome_container {
+  color: white;
+}

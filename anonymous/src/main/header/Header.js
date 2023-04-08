@@ -41,9 +41,9 @@ class Header extends React.Component {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={'/setting'} end>
-                                <i className='fa-solid fa-gear setting'></i>
-                                <span className="links_name setting">Cài đặt</span>
+                            <NavLink to={'/about_us'} end>
+                            <i class="fa-solid fa-circle-info"></i>
+                                <span className="links_name">Về chúng tôi</span>
                             </NavLink>
                         </li>
                         <li>

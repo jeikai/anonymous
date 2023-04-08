@@ -29,6 +29,7 @@ function Logup() {
         if (a) {
             setPassword(event.target.value)
         }
+        console.log(values)
     }
     const handleValidation = () => {
         const { password, repass, userName, age, gender, avatarImage } = values;

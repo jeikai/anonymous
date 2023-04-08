@@ -6,6 +6,7 @@ export const registerRoute = `${host}/api/auth/logup`;
 export const logoutRoute = `${host}/api/auth/logout`;
 //dùng cho contact
 export const allUsersRoute = `${host}/api/auth/allusers`;
+//dùng cho gửi tin nhắn
 export const sendMessageRoute = `${host}/api/messages/addmsg`;
+//lấy ra toàn bộ tin nhắn
 export const recieveMessageRoute = `${host}/api/messages/getmsg`;
-export const setAvatarRoute = `${host}/api/auth/setavatar`;

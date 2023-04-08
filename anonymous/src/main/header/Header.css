@@ -1,9 +1,7 @@
 .sidebar{
     height: 100%;
     width: 78px;
-    background-image: linear-gradient(
-        top bottom right, #FFCEFE, #FDEBED 30%
-    );
+    background-color: white;
     position: fixed;
     top: 0;
     left: 0;
@@ -209,6 +207,9 @@ body:has(input[name="changeTheme"]:checked) {
         to top, #1a1f39, black
     );
     color: white;
+}
+body:has(input[name="changeTheme"]:checked) .sidebar{
+  background-color: black;
 }
 body:has(input[name="changeTheme"]:checked) .sidebar .logo_content i{
     color: white;

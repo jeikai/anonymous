@@ -1,12 +1,14 @@
 import './ChatBox.css'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ChatContainer from './ChatContainer';
-import Welcome from './Welcome';
-import Contacts from './Contacts';
+import ChatContainer from './ChatContainer/ChatContainer';
+import Welcome from './Welcome/Welcome';
+import Contacts from './Contact/Contacts';
 import axios from "axios";
-import { allUsersRoute } from '../../../utils/APIRoutes';
+import { allUsersRoute, host } from '../../../utils/APIRoutes';
+import {io} from "socket.io-client"
 function ChatBox() {
+  const socket = useRef()
   const navigate = useNavigate();
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
@@ -24,6 +26,13 @@ function ChatBox() {
       );
     }
   }, []);
+  useEffect(() => {
+    if (currentUser) {
+      socket.current = io(host);
+      socket.current.emit("add-user", currentUser._id);
+    }
+  }, [currentUser]);
+
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
   };
@@ -42,14 +51,12 @@ function ChatBox() {
   return (
     <>
       <div className="chat_container">
-        <Contacts contacts={contacts} changeChat={handleChatChange}></Contacts>
-        <Welcome />
-        {/*   <Contacts contacts={contacts} changeChat={handleChatChange} />
-                {currentChat === undefined ? (
-                    <Welcome />
-                ) : (
-                    <ChatContainer currentChat={currentChat} socket={socket} />
-                )}*/}
+        <Contacts contacts={contacts} changeChat={handleChatChange} />
+        {currentChat === undefined ? (
+          <Welcome />
+        ) : (
+          <ChatContainer currentChat={currentChat} currentUser={currentUser} socket={socket}/>
+        )}
       </div>
     </>
   )

@@ -1,8 +1,9 @@
 .chat_container {
-    height: 85vh;
-    width: 85vw;
+    height: 100vh;
+    width: 100%;
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 20% 80%;
+    
   }
   @media screen and (min-width: 720px) and (max-width: 1080px) {
     .chat_container {
