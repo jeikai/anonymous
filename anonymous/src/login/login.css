@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Kaushan+Script&display=swap');
 .loginContainer {
     background-color: #333F6A;
     width: 400px;
@@ -19,6 +19,9 @@
     margin-top: 50px;
     border-radius: 20px;
     position: relative;
+}
+.form .group h1 {
+  font-family: 'Kaushan Script', cursive;
 }
 .form::before {
     content: '';

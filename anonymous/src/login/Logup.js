@@ -17,6 +17,7 @@ function Logup() {
         draggable: true,
         theme: "dark",
     };
+    const [upload, setUpload] = useState("")
     const [values, setValues] = useState({
         userName: "",
         repass: "",
@@ -26,8 +27,11 @@ function Logup() {
     })
     const handleChange = (event, a) => {
         setValues({ ...values, [event.target.name]: event.target.value });
-        if (a) {
+        if (a == "pass") {
             setPassword(event.target.value)
+        } else if ( a == "file") {
+            setUpload(event.target.value)
+            setValues({ ...values, [event.target.name]: event.target.files[0] });
         }
         console.log(values)
     }
@@ -57,7 +61,8 @@ function Logup() {
                 toastOptions
             );
             return false;
-        } else if (avatarImage.substr(-3).toLowerCase() != "jpg" && avatarImage.substr(-3).toLowerCase() != "png") {
+        } 
+        else if (upload.substr(-3).toLowerCase() != "jpg" && upload.substr(-3).toLowerCase() != "png") {
             toast.error(
                 "Sai định dạng ảnh",
                 toastOptions
@@ -70,15 +75,16 @@ function Logup() {
     const handleSubmit = async (event) => {
         event.preventDefault()
         if (handleValidation()) {
-            const { password, repass, userName, age, gender, avatarImage } = values;
+
+            const formData = new FormData()
+            formData.append("userName", values.userName)
+            formData.append("password", values.password)
+            formData.append("age", values.age)
+            formData.append("gender", values.gender)
+            formData.append("avatarImage", values.avatarImage)
+            formData.append("upload", upload)
             //call API
-            const { data } = await axios.post(registerRoute, {
-                userName,
-                password,
-                age,
-                gender,
-                avatarImage
-            })
+            const { data } = await axios.post(registerRoute, formData)
             if (data.status === false) {
                 toast.error(data.msg, toastOptions);
             } else if (data.status === true) {
@@ -90,7 +96,7 @@ function Logup() {
     return (
         <>
             <div className='loginContainer'>
-                <form onSubmit={(event) => handleSubmit(event)}>
+                <form onSubmit={(event) => handleSubmit(event)} encType='multipart/form-data'>
                     <div className='logo'>
                         <img src='./assets/images/logo.png' />
                     </div>
@@ -105,7 +111,7 @@ function Logup() {
                                 id='name'
                                 name='userName'
                                 autoComplete='off'
-                                onChange={(e) => handleChange(e, false)}></input>
+                                onChange={(e) => handleChange(e, "name")}></input>
                             <label for='name'>
                                 UserName
                             </label>
@@ -117,7 +123,7 @@ function Logup() {
                                 name='password'
                                 autoComplete='off'
                                 placeholder=''
-                                onChange={(e) => handleChange(e, true)}
+                                onChange={(e) => handleChange(e, "pass")}
                             ></input>
                             <label for='password'>
                                 Password
@@ -131,7 +137,7 @@ function Logup() {
                                 id='password'
                                 autoComplete='off'
                                 placeholder=''
-                                onChange={(e) => handleChange(e, false)}></input>
+                                onChange={(e) => handleChange(e, "repass")}></input>
                             <label for='password'>
                                 Repeat your password
                             </label>
@@ -143,14 +149,14 @@ function Logup() {
                                 id='age'
                                 autoComplete='off'
                                 placeholder=''
-                                onChange={(e) => handleChange(e, false)}></input>
+                                onChange={(e) => handleChange(e, "age")}></input>
                             <label for='age'>
                                 Age
                             </label>
                         </div>
                         <div className='group '>
                             <i class="fa-solid fa-venus-mars"></i>
-                            <select name="gender" id="gender" onChange={(e) => handleChange(e, false)}>
+                            <select name="gender" id="gender" onChange={(e) => handleChange(e, "gender")}>
                                 <option value="1" selected>Male</option>
                                 <option value="0" >Female</option>
                             </select>
@@ -160,7 +166,7 @@ function Logup() {
                         </div>
                         <div className='group'>
                             <i class="fa-solid fa-image"></i>
-                            <input type='file' name='avatarImage' onChange={(e) => handleChange(e, false)}></input>
+                            <input type='file' name='avatarImage' onChange={(e) => handleChange(e, "file")}></input>
                             <label>
                                 Your avatar
                             </label>

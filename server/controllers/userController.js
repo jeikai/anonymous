@@ -6,13 +6,14 @@ const bcrypt = require("bcrypt");
 //next cho phép ta điều khiển sang middleware tiếp theo
 module.exports.register = async (req, res, next) => {
   try {
-    let { userName, password, age, gender, avatarImage } = req.body;
+    let password = req.body.password
+    let avatarImage = req.body.upload
     if (avatarImage != "default.jpg") {
       let check = avatarImage.substring(2, 3)
       let array = avatarImage.split(check)
       avatarImage = array[array.length - 1]
     }
-    console.log(avatarImage)
+    let userName = req.body.userName
     //Câu lệnh truy vấn tím kiếm xem trong DB có tồn tại username này hay chưa
     const usernameCheck = await User.findOne({ userName });
     if (usernameCheck) {
@@ -21,15 +22,17 @@ module.exports.register = async (req, res, next) => {
       //Câu lệnh này mã hoá pass với độ dài kí tự là 10
       const hashedPassword = await bcrypt.hash(password, 10);
       const user = await User.create({
-        userName,
+        userName: req.body.userName,
         password: hashedPassword,
-        age,
-        gender,
-        avatarImage,
+        age: req.body.age,
+        gender: req.body.gender,
+        avatarImage: avatarImage
       });
+      user.save()
       delete user.password;
       return res.json({ status: true, user });
     }
+
   } catch (e) {
     next(e)
   }

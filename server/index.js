@@ -1,11 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+const fs = require("fs")
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 // const authRoutes = require("./routes/auth");
 const messageRoutes = require("./routes/messagesRoutes")
 const app = express();
-const multer = require("multer")
 const socket = require("socket.io");
 require("dotenv").config();
 
@@ -23,6 +23,7 @@ mongoose
   .catch((err) => {
     console.log(err.message);
   });
+
 
 app.use("/api/auth", userRoutes);
 app.use("/api/messages", messageRoutes);
