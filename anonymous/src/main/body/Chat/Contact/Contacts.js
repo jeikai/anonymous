@@ -35,7 +35,7 @@ export default function Contacts({ contacts, changeChat }) {
                 onClick={() => changeCurrentChat(index, contact)}
               >
                 <div className="avatar">
-                  <img src={"./assets/images/" + contact.avatarImage}alt=""></img>
+                  <img src={"./assets/uploads/" + contact.avatarImage}alt=""></img>
                 </div>
                 <div className="username">
                   <h3>{contact.userName}</h3>
@@ -46,7 +46,7 @@ export default function Contacts({ contacts, changeChat }) {
         </div>
         <div className="current-user">
           <div className="avatar">
-            <img src={'./assets/images/' +  currentUserImage} alt="avatar"></img>
+            <img src={'./assets/uploads/' +  currentUserImage} alt="avatar"></img>
             {console.log(currentUserImage)}
           </div>
           <div className="username">

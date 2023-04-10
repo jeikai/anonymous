@@ -10,7 +10,7 @@ export default function Fill_Post() {
                     <div className="inputbox">
                         <i class="fa-regular fa-user"></i>
                         <input type="text" name="username" id="username"></input>
-                        <label for="username">Tên đăng nhập</label>
+                        <label for="username">Tiêu đề bài đăng</label>
                     </div>
 
                     <div className="inputbox">
@@ -19,7 +19,7 @@ export default function Fill_Post() {
                         <label for="password">Mật khẩu</label>
                     </div>
                     <button type="button" id="login-button">
-                        Đăng nhập
+                        Hoàn tất
                     </button>
                 </form>
             </div>

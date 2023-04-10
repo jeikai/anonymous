@@ -88,7 +88,7 @@ function Logup() {
             if (data.status === false) {
                 toast.error(data.msg, toastOptions);
             } else if (data.status === true) {
-                navigate("/login")
+                setTimeout( navigate("/login"), 2000)           
             }
         }
     }
@@ -113,7 +113,7 @@ function Logup() {
                                 autoComplete='off'
                                 onChange={(e) => handleChange(e, "name")}></input>
                             <label for='name'>
-                                UserName
+                                Tên người dùng
                             </label>
                         </div>
                         <div className='group'>
@@ -126,7 +126,7 @@ function Logup() {
                                 onChange={(e) => handleChange(e, "pass")}
                             ></input>
                             <label for='password'>
-                                Password
+                                Mật khẩu
                             </label>
                         </div>
                         <PasswordStrength password={password} />
@@ -139,7 +139,7 @@ function Logup() {
                                 placeholder=''
                                 onChange={(e) => handleChange(e, "repass")}></input>
                             <label for='password'>
-                                Repeat your password
+                                Lặp lại mật khẩu
                             </label>
                         </div>
                         <div className='group '>
@@ -151,7 +151,7 @@ function Logup() {
                                 placeholder=''
                                 onChange={(e) => handleChange(e, "age")}></input>
                             <label for='age'>
-                                Age
+                                Tuổi
                             </label>
                         </div>
                         <div className='group '>
@@ -161,20 +161,20 @@ function Logup() {
                                 <option value="0" >Female</option>
                             </select>
                             <label >
-                                Gender
+                                Giới tính
                             </label>
                         </div>
                         <div className='group'>
                             <i class="fa-solid fa-image"></i>
                             <input type='file' name='avatarImage' onChange={(e) => handleChange(e, "file")}></input>
                             <label>
-                                Your avatar
+                                Ảnh đại diện
                             </label>
                         </div>
 
                         <div className='loginBtn'>
                             <button type='submit'>
-                                GET START
+                                Bắt đầu
                             </button>
                         </div>
                     </div>

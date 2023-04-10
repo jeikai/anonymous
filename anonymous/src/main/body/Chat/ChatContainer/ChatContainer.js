@@ -55,7 +55,7 @@ function ChatContainer({ currentChat, currentUser, socket }) {
             <div className="chat-header">
                 <div className="user-details">
                     <div className="avatar">
-                        <img src={"./assets/images/" + currentChat.avatarImage}></img>
+                        <img src={"./assets/uploads/" + currentChat.avatarImage}></img>
                     </div>
                     <div className="username">
                         {currentChat.userName}

@@ -82,7 +82,7 @@ function Login() {
                 autoComplete='off'
                 onChange={(e) => handleChange(e)}></input>
               <label for='name'>
-                UserName
+                Tên người dùng
               </label>
             </div>
             <div className='group'>
@@ -94,7 +94,7 @@ function Login() {
                 placeholder=''
                 onChange={(e) => handleChange(e)}></input>
               <label for='password'>
-                Password
+                Mật khẩu
               </label>
             </div>
             <div className='group'>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono&display=swap');
 body {
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   margin: 0;
@@ -11,7 +11,7 @@ body {
   color: #555;
   overflow: auto;
   transition: 0.5s;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Chivo Mono', monospace;
 
 } 
   .mainBodyActive{
