@@ -1,8 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css'
-import Login from './login/Login';
-import Logup from './login/Logup';
-import Fill_Post from './login/Fill_Post';
+import Login from './login/Login/Login';
+import Logup from './login/Logup/Logup';
 import Home from './main/body/Home/Home';
 import { useState } from 'react';
 import Header from './main/header/Header';
@@ -25,7 +24,6 @@ function App() {
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path='/logup' element={<Logup />} />
-          <Route path='/fill' element={<Fill_Post/>}></Route>
         </Routes>
         :
         <>

@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 const router = require("express").Router()
 
-router.post("/Logup", upload.single("avatarImage"), register)
+router.post("/Logup", upload.single("uploadAva"), register)
 router.post("/login", login)
 router.get('/allusers/:id', getAllUsers)
 module.exports = router

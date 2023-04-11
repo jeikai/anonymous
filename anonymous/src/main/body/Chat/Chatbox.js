@@ -8,7 +8,7 @@ import axios from "axios";
 import { allUsersRoute, host } from '../../../utils/APIRoutes';
 import {io} from "socket.io-client"
 function ChatBox() {
-  const socket = useRef()
+  const socket = useRef() 
   const navigate = useNavigate();
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);

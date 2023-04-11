@@ -7,13 +7,14 @@ const bcrypt = require("bcrypt");
 module.exports.register = async (req, res, next) => {
   try {
     let password = req.body.password
-    let avatarImage = req.body.upload
+    let avatarImage = req.body.avatarImage
+    let userName = req.body.userName
     if (avatarImage != "default.jpg") {
       let check = avatarImage.substring(2, 3)
       let array = avatarImage.split(check)
       avatarImage = array[array.length - 1]
     }
-    let userName = req.body.userName
+    
     //Câu lệnh truy vấn tím kiếm xem trong DB có tồn tại username này hay chưa
     const usernameCheck = await User.findOne({ userName });
     if (usernameCheck) {
@@ -29,7 +30,6 @@ module.exports.register = async (req, res, next) => {
         avatarImage: avatarImage
       });
       user.save()
-      delete user.password;
       return res.json({ status: true, user });
     }
 

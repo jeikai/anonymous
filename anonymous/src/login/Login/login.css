@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Kaushan+Script&display=swap');
+.loginContainer {
+    background-color: #333F6A;
+    width: 400px;
+    max-width: 100%;
+    text-align: center;
+    padding: 30px 30px 50px;
+    border-radius: 30px;
+    position: relative;
+    z-index: 1;
+}
+.loginContainer .logo img{
+    width: 120px;
+    height: 100px;
+}
+.form {
+    background-color: #f5f5f5;
+    padding: 5px 20px 20px;
+    margin-top: 50px;
+    border-radius: 20px;
+    position: relative;
+}
+.form .group h1 {
+  font-family: 'Kaushan Script', cursive;
+}
+.form::before {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    background-color: #ffffff66;
+    left: 5%;
+    top: -10px;
+    border-radius: 20px;
+    z-index: -1;
+}
+.group {
+    position: relative;
+    display: grid;
+    grid-template-columns: 30px auto;
+    padding: 10px 0;
+    margin-top: 30px;
+    border-bottom: 1px solid #555;
+}
+.group:nth-child(1) {
+    border-bottom: none;
+    grid-template-columns: 100%;
+}
+.group input{
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+.group label {
+    position: absolute;
+    left: 35px;
+    top: -20px;
+}
+.group:nth-child(3) {
+    grid-template-columns: 30px auto 30px;
+}
+
+.group:nth-child(4) {
+    grid-template-columns: auto;
+    border: none;
+}
+.group:nth-child(4) .repeat_pass {
+    grid-template-columns: 10px auto;
+    border-bottom: 1px solid #555;
+}
+.loginBtn {
+    background-color: #f5f5f5;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 50%;
+    transform: translate(-50%, 50%);
+    border: 10px solid #333F6A;
+    position: relative;
+}
+
+
+.loginBtn button {
+    text-decoration: none;
+    position: relative;
+    border: none;
+    font-size: 14px;
+    font-family: inherit;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    line-height: 2em;
+    text-align: center;
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 300%;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .loginBtn  button:hover {
+    animation: ani 8s linear infinite;
+    border: none;
+  }
+  
+  @keyframes ani {
+    0% {
+      background-position: 0%;
+    }
+  
+    100% {
+      background-position: 400%;
+    }
+  }
+  
+  .loginBtn  button:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    border-radius: 35px;
+    transition: 1s;
+  }
+  
+  .loginBtn  button:hover::before {
+    filter: blur(20px);
+  }
+  
+  .loginBtn  button:active {
+    background: linear-gradient(32deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+  }
+
+  #gender {
+    border: none;
+    background-color: transparent;
+  }
+.group .log_up {
+    color: #cc64a2;
+    text-decoration-line: none;
+    font-size: medium;
+}
+.fa-arrow-left {
+    color: #cc64a2;
+    text-decoration-line: none;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.group .power-container {
+    background-color: #2f3e47;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+}
+.group .power-container #power-point {
+    /* mặc định sẽ để là màu đỏ */
+    background-color: red;
+    width: 1%;
+    height: 100%;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
