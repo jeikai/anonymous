@@ -1,30 +1,37 @@
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Home.css'
 import Tinder_Card from './TinderCard'
+import { allPostsRoute } from '../../../utils/APIRoutes';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Home(props) {
-    const initdb = [
-        {
-            name: 'Bùi Đức Huy',
-            url: './assets/images/buiHuy.png',
-            age: 26,
-            gender: true,
-            favorite: 'Ăn, ngủ, code',
-            description: 'Yêu màu tím ghét sự giả dối. Thích tâm hồn đẹp'
-        },
-        {
-            name: 'Doãn Ngọc Hà',
-            url: './assets/images/ngocHa.png',
-            age: 16,
-            gender: false,
-            favorite: 'Thích đánh người',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        },
-    ]
-    const [db, SetDb] = useState(initdb);
+    const navigate = useNavigate()
+    const [post, setPost] = useState([])
+    const [currentUser, setCurrentUser] = useState(undefined);
+    useEffect(() => {
+        if (!localStorage.getItem('user')) {
+            navigate("/login");
+        } else {
+            const user = JSON.parse(localStorage.getItem('user'))
+            setCurrentUser(
+                user
+            );
+        }
+    }, []);
+    // console.log(currentUser.userName)
+    useEffect(() => {
+        async function Data() {
+            if (currentUser) {
+                const data = await axios.get(`${allPostsRoute}/${currentUser.userName}`)
+                setPost(data.data);
+            }
+        }
+        Data()
+    }, [currentUser])
     return (
         <>
-            <Tinder_Card db={db} />      
+            <Tinder_Card post={post} />
         </>
     )
 }

@@ -40,10 +40,11 @@
   color: black;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .card .info span:nth-child(n+2) {
-  font-size: 14px;
+  font-size: 18px;
   color: gray;
 }
 

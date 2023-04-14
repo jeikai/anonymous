@@ -43,7 +43,7 @@ function ChatBox() {
         const data = await axios.get(`${allUsersRoute}/${currentUser._id}`)
         setContacts(data.data);
       }
-    }
+    } 
     Data()
   }, [currentUser]);
   console.log(contacts)

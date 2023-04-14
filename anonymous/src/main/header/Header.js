@@ -34,9 +34,21 @@ class Header extends React.Component {
                             </NavLink>
                         </li>
                         <li>
+                            <NavLink to={'/ai'} end>
+                                <i class="fa-solid fa-question"></i>
+                                <span className="links_name">Hỏi đáp</span>
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink to={'/search'} end>
                                 <i class="fas fa-search"></i>
                                 <span className="links_name">Tìm kiếm</span>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'/bill'} end>
+                                <i class="fa-solid fa-money-bill"></i>
+                                <span className="links_name">Chuyển tiền</span>
                             </NavLink>
                         </li>
                         <li>

@@ -66,4 +66,4 @@ module.exports.getAllUsers = async (req, res, next) => {
   } catch (ex) {
     next(ex);
   }
-};
+}; 

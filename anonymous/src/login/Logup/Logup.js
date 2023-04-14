@@ -15,8 +15,8 @@ function Logup() {
         draggable: true,
         theme: "dark",
     };
-    const [uploadAva, setUploadAva] = useState("")
-    const [uploadPost, setUploadPost] = useState("")
+    const [uploadAva, setUploadAva] = useState()
+    const [uploadPost, setUploadPost] = useState()
     const [values, setValues] = useState({
         userName: "",
         password: "",
@@ -26,15 +26,15 @@ function Logup() {
         title: "",
         favorite: "",
         description: "",
-        postImage: "",
+        postImage: "default.jpg",
     })
     const handleChange = (event, a) => {
         setValues({ ...values, [event.target.name]: event.target.value });
         if (a == "avatarImage") {
-            setUploadAva(event.target.file[0])
+            setUploadAva(event.target.files[0])
         }
         else if (a == "postImage") {
-            setUploadPost(event.target.file[0])
+            setUploadPost(event.target.files[0])
         }
         console.log(values)
     }
@@ -74,7 +74,7 @@ function Logup() {
         }
         return true;
     }
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault()
         if (handleValidation()) {
 
@@ -89,17 +89,21 @@ function Logup() {
             const postData = new FormData()
             postData.append("title", values.title)
             postData.append("userName", values.userName)
+            postData.append("gender", values.gender)
+            postData.append("age", values.age)
             postData.append("favorite", values.favorite)
             postData.append("description", values.description)
             postData.append("postImage", values.postImage)
             postData.append("uploadPost", uploadPost)
             //call API
-            const { user } = await axios.post(registerRoute, userData)
-            const { post } = await axios.post(addPostRoute, postData)
-            if (user.status === false) {
+            
+            const { user } = axios.post(registerRoute, userData)
+            const { post } = axios.post(addPostRoute, postData)
+            console.log(postData, userData)
+            if (user.status === false || post.status === false) {
                 toast.error(user.msg, toastOptions);
-            } else if (user.status === true) {
-                setTimeout(navigate("/login"), 2000)
+            } else if (user.status === true && post.status === true) {
+                // setTimeout(navigate("/login"), 2000)
             }
         }
     }
@@ -125,7 +129,8 @@ function Logup() {
                                 id="age"
                                 name="age"
                                 placeholder="Enter Age"
-                                onChange={(e) => handleChange(e, "age")} />
+                                onChange={(e) => handleChange(e, "age")} 
+                                min='18'/>
                         </div>
 
                         <div className="user-input-box">
@@ -136,7 +141,7 @@ function Logup() {
                                 placeholder="Enter password"
                                 onChange={(e) => handleChange(e, "password")} />
                         </div>
-                        <div className="user-input-box">
+                        <div className="user-input-box"> 
                             <label for="repass">Nhập lại mật khẩu</label>
                             <input type="password"
                                 id="repass"

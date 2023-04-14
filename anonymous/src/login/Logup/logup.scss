@@ -1,39 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Kaushan+Script&display=swap');
 .log_container{
+    max-width: 700px;
     width: 100%;
-    max-width: 650px;
-    background: rgba(111, 109, 109, 0.5);
-    padding: 28px;
-    margin: 0 28px;
-    border-radius: 10px;
-    box-shadow: inset -2px 2px 2px white;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
     .log_up {
         color: white;
         font-size: 30px;
     }
     .form-title{
-    font-size: 26px;
-    font-weight: 600;
-    text-align: center;
-    padding-bottom: 6px;
-    color: white;
-    border-bottom: solid 1px white;
+        font-size: 25px;
+        font-weight: 500;
+        position: relative;
+        font-family: 'Kaushan Script', cursive;
+    }
+    .form-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 30px;
+        border-radius: 5px;
+        background: linear-gradient(135deg, #71b7e6, #9b59b6);
     }
     .main-user-info{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 20px 0;
+        margin: 20px 0 12px 0;
         .user-input-box:nth-child(2n){
             justify-content: end;
         }
         .user-input-box{
             display: flex;
             flex-wrap: wrap;
-            width: 50%;
-            padding-bottom: 15px;
+            margin-bottom: 15px;
+            width: calc(100% / 2 - 20px);
             label{
                 width: 95%;
-                color: white;
+                color: black;
                 font-size: 20px;
                 font-weight: 400;
                 margin: 5px 0;
@@ -63,20 +71,20 @@
     }
     .form-submit-btn {
         input{
-            display: block;
+            height: 100%;
             width: 100%;
-            margin-top: 10px;
-            font-size: 20px;
-            padding: 10px;
-            border:none;
-            border-radius: 3px;
-            color: rgb(209, 209, 209);
-            background: rgba(63, 114, 76, 0.7);
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
             cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
         }
         input:hover{
-            background: rgba(56, 204, 93, 0.7);
-            color: rgb(255, 255, 255);
+            background: linear-gradient(-135deg, #71b7e6, #9b59b6);
         }
     }
 }

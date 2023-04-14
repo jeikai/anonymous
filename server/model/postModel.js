@@ -4,6 +4,17 @@ const mongoose = require("mongoose");
 const postSchema = new mongoose.Schema({
   userName: {
     type: String,
+    ref: 'Users'
+  },
+  gender: {
+    type: Boolean,
+    required: true,
+    default: 0,
+  },
+  age: {
+    type: Number,
+    required: true,
+    default: 18,
   },
   title: {
     type: String,
@@ -16,8 +27,8 @@ const postSchema = new mongoose.Schema({
   },
   postImg: {
     type: String,
-    default: "default.jpg",
-  }
+    default: "",
+  },
 });
 
 module.exports = mongoose.model("Posts", postSchema); 
