@@ -48,6 +48,23 @@ module.exports.getAllPosts = async (req, res, next) => {
     next(ex);
   }
 };
+module.exports.getUser = async (req, res, next) => {
+  try {
+    // $ne: tìm kiếm các giá trị không bằng giá trị ID đã cho
+    const posts = await Post.find({ userName: req.params.name }).select([
+      "postImg",
+      "userName",
+      "title",
+      "favorite",
+      "description",
+      "gender",
+      "age"
+    ]);
+    return res.json(posts);
+  } catch (ex) {
+    next(ex);
+  }
+};
 module.exports.searchPosts = async (req, res, next) => {
   try {
     const posts = await Post.find({ userName: req.body.search });
@@ -57,6 +74,26 @@ module.exports.searchPosts = async (req, res, next) => {
     }
     console.log(posts)
     return res.json({ posts, status: true });
+  } catch (ex) {
+    next(ex);
+  }
+};
+
+module.exports.updatePosts = async (req, res, next) => {
+  try {
+    let post = {}
+    post.title = req.body.title
+    post.favorite = req.body.favorite
+    post.description = req.body.description
+    
+    let name = req.params.name
+    const data = await Post.updateOne( {userName: name}, {$set :{
+      title: post.title,
+      favorite: post.favorite,
+      description: post.description
+    }})
+    console.log(data)
+    return res.json({ status: true })
   } catch (ex) {
     next(ex);
   }

@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useRef } from 'react'
 import './Home.css'
-import { propTypes } from 'react-bootstrap/esm/Image'
 import TinderCard from 'react-tinder-card'
 
 function Tinder_Card({ post }) {
@@ -43,6 +42,7 @@ function Tinder_Card({ post }) {
         if (canSwipe && currentIndex < post.length) {
             await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
         }   
+        console.log("haha")
     }
     return (
         <>

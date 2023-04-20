@@ -4,7 +4,7 @@ import '../Chat/ChatContainer/ChatContainer.scss'
 import { IoMdSend } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 
-const API_KEY = "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";
+const API_KEY = "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";
 const systemMessage = {
   "role": "system", "content": "Explain things like you're talking to a software professional with 2 years of experience."
 }

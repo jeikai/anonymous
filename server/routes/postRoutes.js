@@ -1,4 +1,4 @@
-const { addpost, getAllPosts, searchPosts } = require("../controllers/postController")
+const { addpost, getAllPosts, searchPosts, getUser, updatePosts } = require("../controllers/postController")
 
 const multer = require("multer")
 const storage = multer.diskStorage({
@@ -14,5 +14,7 @@ const router = require("express").Router()
 
 router.post("/addpost", upload.single("uploadPost"), addpost)
 router.get('/getpost/:id', getAllPosts)
+router.get('/users/:name', getUser)
+router.post('/updatepost/:name', updatePosts)
 router.post("/searchpost", searchPosts)
 module.exports = router

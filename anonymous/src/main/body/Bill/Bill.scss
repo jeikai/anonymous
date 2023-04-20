@@ -83,3 +83,12 @@ section {
       }
     }
   }
+  body:has(input[name="changeTheme"]:checked) .bill_container h2{
+    color: white;
+  }
+  body:has(input[name="changeTheme"]:checked) .bill_container .inputbox label{
+    color: white;
+  }
+  body:has(input[name="changeTheme"]:checked) .bill_container .inputbox i{
+    color: white;
+  }

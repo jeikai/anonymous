@@ -23,7 +23,7 @@ body {
     width: calc(100% - 78px);
     position: absolute;
     left: 78px;
-    height: 100vh;
+    height: 98vh;
     transition: all 0.5s ease;
     z-index: 0;
     margin: 0;

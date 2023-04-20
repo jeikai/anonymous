@@ -52,6 +52,12 @@ class Header extends React.Component {
                             </NavLink>
                         </li>
                         <li>
+                            <NavLink to={'/history'} end>
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                                <span className="links_name">Lịch sử giao dịch</span>
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink to={'/message'} end>
                                 <i class="fa-solid fa-message"></i>
                                 <span className="links_name">Tin nhắn</span>

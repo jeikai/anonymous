@@ -42,7 +42,7 @@ export default function Contacts({ contacts, changeChat }) {
                 </div>
               </div>
             )
-          })}
+          })} 
         </div>
         <div className="current-user">
           <div className="avatar">

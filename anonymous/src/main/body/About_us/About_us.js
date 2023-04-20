@@ -7,7 +7,7 @@ export default function About_us() {
                 <div className='about-text'>
                     <h1>About Us</h1>
                     <h5>Anonymous</h5>
-                    <p>Anonymous là một ứng dụng kết nối người dùng với nhau dựa trên vị trí địa lý và sở thích cá nhân. Người dùng có thể tạo hồ sơ cá nhân và xem hồ sơ của những người khác trong khu vực gần họ. Nếu hai người thích nhau, họ có thể bắt đầu trò chuyện và tiếp tục tương tác trên ứng dụng hoặc gặp mặt trực tiếp. Anonymous là một trong những ứng dụng hẹn hò phổ biến nhất trên thế giới, được sử dụng rộng rãi bởi các đối tượng khác nhau từ thanh niên đến người lớn tuổi.</p>
+                    <p>Anonymous là một ứng dụng mạng xã hội cho phép người dùng trò chuyện và hẹn hò. Ngoài ra người dùng có thể hỏi đáp với Anonymous assistant cũng như chuyển tiền với Anonymous bank. Anonymous được tạo ra nhằm mục đích đem đến cho người dùng những trải nghiệm tốt nhất và đáp ứng mong muốn, nhu cầu của người dùng khắp nơi trên thế giới</p>
                 </div>
             </div>
         </div>

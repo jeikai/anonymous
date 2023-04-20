@@ -11,6 +11,7 @@ import Profile from './main/body/Profile/Profile';
 import Search from './main/body/Search/Search';
 import AI from './main/body/AI/AI';
 import Bill from './main/body/Bill/Bill';
+import History from './main/body/History_transaction/History';
 function App() {
   const [login, setLogin] = useState({
     user: localStorage.getItem('user')
@@ -37,6 +38,7 @@ function App() {
               <Route path='/profile' element={<Profile />} />
               <Route path='/search' element={<Search />} />       
               <Route path='/bill' element={<Bill />} />       
+              <Route path='/history' element={<History />} />       
               <Route path='/about_us' element={<About_us />} />
               <Route path='/message' element={<ChatBox />} />
             </Routes>
