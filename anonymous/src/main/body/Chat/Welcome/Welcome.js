@@ -7,7 +7,7 @@ function Welcome() {
             <div className="welcome_container">
                 <img src="./assets/images/heart.gif"></img>
                 <h1>
-                    WELCOME
+                    WELCOME 
                 </h1>
                 <h3>Please select a chat to Start messaging.</h3>
             </div>

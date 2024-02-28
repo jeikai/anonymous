@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 //Phương thức đăng kí trong module và được export ra để dùng cho module khác
 //next cho phép ta điều khiển sang middleware tiếp theo
 module.exports.register = async (req, res, next) => {
-  try {
+  try { 
     let password = req.body.password
     let avatarImage = req.body.avatarImage
     let userName = req.body.userName

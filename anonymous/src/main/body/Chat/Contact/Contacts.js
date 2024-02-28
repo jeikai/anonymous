@@ -24,9 +24,9 @@ export default function Contacts({ contacts, changeChat }) {
       <div className="contact_container">
         <div className="brand">
           <img src="./assets/images/logo.png" />
-          <h4>Anonymous</h4>
+          <h4>Anonymous</h4> 
         </div>
-        <div className="contacts">
+        <div className="contacts"> 
           {contacts.map((contact, index) => {
             return (
               <div

@@ -24,19 +24,22 @@ function ChatContainer({ currentChat, currentUser, socket }) {
 
     const handleSendMsg = async (msg) => {
         await axios.post(sendMessageRoute, {
-            from: currentUser._id,
+            from: currentUser._id, 
             to: currentChat._id,
             message: msg
         })
         socket.current.emit("send-msg", {
             to: currentChat._id,
             from: currentUser._id,
-            msg,
+            msg, 
         });
-        const msgs = [...messages];
+        debugger
+        console.log(messages)
+        const msgs = messages ? [...messages] : [];
         msgs.push({ fromSelf: true, message: msg });
         setMessages(msgs);
     }
+    
     useEffect(() => {
         if (socket.current) {
             socket.current.on("msg-recieve", (msg) => {
@@ -50,7 +53,7 @@ function ChatContainer({ currentChat, currentUser, socket }) {
     useEffect(() => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
-    return (
+    return ( 
         <div className="chatcontainer">
             <div className="chat-header">
                 <div className="user-details">
@@ -63,7 +66,7 @@ function ChatContainer({ currentChat, currentUser, socket }) {
                 </div>
             </div>
             <div className="chat-messages">
-                {messages.map((message) => {
+                {messages.length > 0 && messages.map((message) => {
                     return (
                         <div ref={scrollRef} key={uuidv4()}>
                             <div
@@ -80,6 +83,6 @@ function ChatContainer({ currentChat, currentUser, socket }) {
             </div>
             <ChatInput handleSendMsg={handleSendMsg}></ChatInput>
         </div>
-    )
+    )    
 }
 export default ChatContainer

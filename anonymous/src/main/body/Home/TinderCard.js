@@ -42,7 +42,7 @@ function Tinder_Card({ post }) {
         if (canSwipe && currentIndex < post.length) {
             await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
         }   
-        console.log("haha")
+        
     }
     return (
         <>

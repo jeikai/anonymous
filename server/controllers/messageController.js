@@ -32,7 +32,7 @@ module.exports.getMessages = async (req, res, next) => {
                 message: msg.message.text,
             };
         });
-        res.json(projectedMessages);
+        res.json({ messages: projectedMessages});
     } catch (ex) {
         next(ex);
     }
