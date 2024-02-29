@@ -18,7 +18,7 @@ function Home(props) {
                 user
             );
         }
-    }, []);
+    }, []); 
     // console.log(currentUser.userName)
     useEffect(() => {
         async function Data() {
