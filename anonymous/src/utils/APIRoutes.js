@@ -1,6 +1,6 @@
 import abi from './Transactions.json'
 
-export const host = "http://localhost:5000";
+export const host = "http://localhost:5500";
 //dành cho đăng nhập
 export const loginRoute = `${host}/api/auth/login`;
 //dành cho đăng kí
@@ -12,7 +12,7 @@ export const usersRoute = `${host}/api/post/users`;
 //dùng cho gửi tin nhắn
 export const sendMessageRoute = `${host}/api/messages/addmsg`;
 //lấy ra toàn bộ tin nhắn
-export const recieveMessageRoute = `${host}/api/messages/getmsg`;
+export const receiveMessageRoute = `${host}/api/messages/getmsg`;
 //dùng cho add post
 export const addPostRoute = `${host}/api/post/addpost`;
 //lấy ra toàn bộ post

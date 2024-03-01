@@ -36,7 +36,7 @@ export default function Search() {
                     <form className='search-bar' onSubmit={(event) => handleSubmit(event)}>
                         <input type='text' name='search' placeholder='Tìm theo tên...'
                             onChange={(e) => handleChange(e)}></input>
-                        <button type='submit'><i class="fas fa-search"></i></button>
+                        <button type='submit'><i className="fas fa-search"></i></button>
                     </form>
                 </div>
                 :

@@ -111,7 +111,7 @@ function Logup() {
     return (
         <>
             <div className="log_container">
-                <Link className='log_up' to='/login'><i class="fa-solid fa-arrow-left"></i></Link>
+                <Link className='log_up' to='/login'><i className="fa-solid fa-arrow-left"></i></Link>
                 <h1 className="form-title">Anonymous</h1>
                 <form onSubmit={(event) => handleSubmit(event)} encType='multipart/form-data'>
                     <div className="main-user-info">

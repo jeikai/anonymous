@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
-import Tinder_Card from './TinderCard'
+import TinderCard from './TinderCard'
 import { allPostsRoute } from '../../../utils/APIRoutes';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -25,13 +25,14 @@ function Home(props) {
             if (currentUser) {
                 const data = await axios.get(`${allPostsRoute}/${currentUser.userName}`)
                 setPost(data.data);
+               
             }
         }
         Data()
     }, [currentUser])
     return (
         <>
-            <Tinder_Card post={post} />
+            <TinderCard post={post} />
         </>
     )
 }

@@ -9,9 +9,9 @@ export default function History() {
     return (
         <div className='table_container'>
 
-            <table class="table">
+            <table className="table">
                 <caption>Anonymous Bank</caption>
-                <thead class="thead-dark">
+                <thead className="thead-dark">
                     <tr>
                         <th scope="col">Địa chỉ nhận</th>
                         <th scope="col">Địa chỉ gửi</th>

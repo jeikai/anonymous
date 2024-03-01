@@ -28,21 +28,21 @@ export default function Bill() {
                     <h2>Anonymous</h2>
                     <img src='./assets/images/logo.png' alt='logo'></img>
                     <div className="inputbox">
-                        <i class="fa-regular fa-user"></i>
+                        <i className="fa-regular fa-user"></i>
                         <input type="text" name="addressTo" id="username"
                             onChange={(e) => handleChange(e)}></input>
                         <label for="username">Mã người nhận</label>
                     </div>
 
                     <div className="inputbox">
-                        <i class="fa-solid fa-money-bill-trend-up"></i>
+                        <i className="fa-solid fa-money-bill-trend-up"></i>
                         <input type="number" name="amount" id="amount"
                             onChange={(e) => handleChange(e)}
                             min="0.0001"></input>
                         <label for="amount">Số tiền</label>
                     </div>
                     <div className="inputbox">
-                        <i class="fa-solid fa-message"></i>
+                        <i className="fa-solid fa-message"></i>
                         <input type="text" name="message" id="msg"
                             onChange={(e) => handleChange(e)}></input>
                         <label for="msg">Lời nhắn</label>
