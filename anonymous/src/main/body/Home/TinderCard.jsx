@@ -6,6 +6,7 @@ function Tinder_Card({ post }) {
 	const [currentIndex, setCurrentIndex] = useState(
 		post ? Math.max(0, post.length - 1) : 0
 	);
+
 	const [lastDirection, setLastDirection] = useState();
 	const currentIndexRef = useRef(currentIndex);
 
@@ -14,9 +15,13 @@ function Tinder_Card({ post }) {
 			Array(post.length)
 				.fill(0)
 				.map((i) => React.createRef()),
-		[]
+		[post]
 	);
-
+	useEffect(() => {
+		if (post) {
+			setCurrentIndex(post.length - 1);
+		}
+	}, [post]);
 	const updateCurrentIndex = (val) => {
 		setCurrentIndex(val);
 		currentIndexRef.current = val;
@@ -37,8 +42,8 @@ function Tinder_Card({ post }) {
 
 	const swipe = async (dir) => {
 		if (canSwipe && currentIndex < post.length) {
-			console.log('post', post);
-			console.log('currentIndex', currentIndex);
+			console.log(childRefs);
+			console.log(childRefs[currentIndex]);
 			if (childRefs[currentIndex].current) {
 				await childRefs[currentIndex].current.swipe(dir);
 			} else {
