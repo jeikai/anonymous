@@ -1,6 +1,6 @@
 import abi from './Transactions.json'
 
-export const host = "http://localhost:5500";
+export const host = "http://localhost:5000";
 //dành cho đăng nhập
 export const loginRoute = `${host}/api/auth/login`;
 //dành cho đăng kí
