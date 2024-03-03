@@ -1,4 +1,4 @@
-const geminiChat = require('../config/gemini')
+const geminiChat = require('../config/gemini');
 module.exports.getChatResponse = async (req, res) => {
 	const { prompt } = await req.body;
 	const result = await geminiChat.sendMessage(prompt);
@@ -9,6 +9,6 @@ module.exports.getChatResponse = async (req, res) => {
 		message: 'OK',
 		data: {
 			response: text,
-		}, 
-	}); 
+		},
+	});
 };
