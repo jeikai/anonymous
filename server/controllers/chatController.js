@@ -7,8 +7,8 @@ module.exports.getChatResponse = async (req, res) => {
 	return res.status(200).json({
 		status: true,
 		message: 'OK',
-		data: {
-			response: text,
+		data: { 
+			response: text, 
 		}, 
 	}); 
-};
+}; 

@@ -22,5 +22,7 @@ export const searchRoute = `${host}/api/post/searchpost`
 //dùng cho update
 export const updateRoute = `${host}/api/post/updatepost`
 
+export const aiRoutes = `${host}/api/gemini/chat`
+
 export const contractABI = abi.abi;
 export const contractAddress = '0x7ce8E6B90487a4F4d0Cf0436f062d10C80125C6b'

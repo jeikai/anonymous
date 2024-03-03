@@ -17,7 +17,7 @@ export default function Profile() {
     const toastOptions = {
         position: "bottom-right",
         autoClose: 8000,
-        pauseOnHover: true,
+        pauseOnHover: true, 
         draggable: true,
         theme: "light",
     };

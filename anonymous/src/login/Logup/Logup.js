@@ -63,7 +63,7 @@ function Logup() {
             toast.error(
                 "Tuổi của bạn phải lớn hơn 18",
                 toastOptions
-            );
+            ); 
             return false;
         } else if ( title == "" || favorite == "" || description == "" ) {
             toast.error(
@@ -74,14 +74,14 @@ function Logup() {
         }
         return true;
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
+        debugger
         if (handleValidation()) {
-
             const userData = new FormData()
             userData.append("userName", values.userName)
             userData.append("password", values.password)
-            userData.append("age", values.age)
+            userData.append("age", values.age) 
             userData.append("gender", values.gender)
             userData.append("avatarImage", values.avatarImage)
             userData.append("uploadAva", uploadAva)
@@ -96,14 +96,15 @@ function Logup() {
             postData.append("postImage", values.postImage)
             postData.append("uploadPost", uploadPost)
             //call API
-            
-            const { user } = axios.post(registerRoute, userData)
-            const { post } = axios.post(addPostRoute, postData)
             console.log(postData, userData)
+            const { user } = await axios.post(registerRoute, userData)
+            const { post } = await axios.post(addPostRoute, postData)
+            console.log(user, post)
             if (user.status === false || post.status === false) {
                 toast.error(user.msg, toastOptions);
-            } else if (user.status === true && post.status === true) {
-                // setTimeout(navigate("/login"), 2000)
+            } else {
+                toast.success("Logup successfully", toastOptions)
+                navigate("/login")
             }
         }
     }
