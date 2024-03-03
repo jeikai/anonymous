@@ -13,7 +13,7 @@ export default function AI() {
           <div className='AI'>AI</div>
         </div>
         <div className="current-user">
-          <div className="username">
+          <div className="username"> 
             <h2>Our assistant</h2>
           </div>
         </div>

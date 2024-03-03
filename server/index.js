@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const postRoutes = require("./routes/postRoutes");
 const messageRoutes = require("./routes/messagesRoutes")
+const aiRoutes = require('./routes/chatRoutes')
 const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
@@ -28,6 +29,7 @@ mongoose
 app.use("/api/auth", userRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/post", postRoutes);
+app.use("/api/gemini", aiRoutes);
 
 const server = app.listen(process.env.PORT, () =>
   console.log(`Server started on ${process.env.PORT}`)
