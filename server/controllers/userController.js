@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 //next cho phép ta điều khiển sang middleware tiếp theo
 module.exports.register = async (req, res, next) => {
   try { 
+    console.log(req.body)
     let password = req.body.password
     let avatarImage = req.body.avatarImage
     let userName = req.body.userName
@@ -17,6 +18,7 @@ module.exports.register = async (req, res, next) => {
     
     //Câu lệnh truy vấn tím kiếm xem trong DB có tồn tại username này hay chưa
     const usernameCheck = await User.findOne({ userName });
+    console.log(usernameCheck)
     if (usernameCheck) {
       return res.json({ msg: "Username already used", status: false });
     } else {
@@ -24,16 +26,18 @@ module.exports.register = async (req, res, next) => {
       const hashedPassword = await bcrypt.hash(password, 10);
       const user = await User.create({
         userName: req.body.userName,
-        password: hashedPassword,
+        password: hashedPassword, 
         age: req.body.age,
         gender: req.body.gender,
         avatarImage: avatarImage
       });
+      console.log(user)
       user.save()
       return res.json({ status: true, user });
     }
 
   } catch (e) {
+    console.log(e)
     next(e)
   }
 };
