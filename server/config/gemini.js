@@ -13,4 +13,4 @@ try {
 	console.log('Error init gemini', error);
 	geminiChat = null;
 }
-module.exports = geminiChat; 
+module.exports = geminiChat;
