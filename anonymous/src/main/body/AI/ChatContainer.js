@@ -5,6 +5,7 @@ import { IoMdSend } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { aiRoutes } from '../../../utils/APIRoutes';
+import Markdown from 'react-markdown'
 
 const API_KEY = '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';
 const systemMessage = {
@@ -27,32 +28,32 @@ export default function ChatContainer() {
 	const handleSend = async (message) => {
 		const newMessage = {
 			message,
-			sentTime: 'outgoing',
+			sentTime: new Date().toLocaleDateString(),
 			sender: 'user',
 		};
-		console.log('user message', newMessage);
 
 		const newMessages = [...messages, newMessage];
-
+		console.log('new message array', newMessages);
 		setMessages(newMessages);
-		console.log('new message', messages);
 		setIsTyping(true);
-		await processMessageToChatGPT(messages);
+		await processMessageToChatGPT(newMessages);
 	};
 
 	async function processMessageToChatGPT(chatMessages) {
+		console.log('chat messages', chatMessages);
 		const response = await axios.post(`${aiRoutes}`, {
 			prompt: chatMessages[chatMessages.length - 1].message,
 		});
-		console.log(response);
-		setMessages([
+		const updatedMsgArray = [
 			...chatMessages,
 			{
 				message: response.data.data.response,
+				sentTime: new Date().toLocaleDateString(),
 				sender: 'ChatGPT',
 			},
-		]);
-		console.log('Message', messages);
+		];
+		console.log('updated message array', updatedMsgArray);
+		setMessages(updatedMsgArray);
 		setIsTyping(false);
 	}
 
@@ -61,10 +62,10 @@ export default function ChatContainer() {
 	};
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		await handleSend(input);
 		if (input.length > 0) {
 			setInput('');
 		}
+		await handleSend(input);
 	};
 	return (
 		<div className="chatcontainer">
@@ -82,7 +83,7 @@ export default function ChatContainer() {
 									message.sender === 'user' ? 'sended' : 'received'
 								}`}>
 								<div className="content">
-									<p>{message.message}</p>
+									<Markdown>{message.message}</Markdown>
 								</div>
 							</div>
 						</div>
